@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='./dist/output.css' rel='stylesheet'>
+    <script src="./download.js"></script>
+    <title>Download Page</title>
+</head>
+<body>
+    <section>
+        <div id="nav"></div>
+    </section>
+    
+
+   <section class="mt-10 py-10">
+    <div class="grid mt-10 lg:grid-cols-2 grid-cols-1 h-full container pt-10 mx-auto">
+<div class="border-r-2 border-gray-500 ">
+    <h1 class="text-herotext font-bold pb-5 text-4xl py-10" >Your video is ready</h1>
+<div>
+    <h3 class="font-medium text-lg text-gray-400">Name</h3>
+    <div class="flex items-center">
+        <h3 class="font-semibold text-gray-600 text-2xl">Untitled video</h3>
+        <div class="ml-2 h-6 w-6"><img src="./images/edit.png" alt="edit icon" class="h-4 ml-3 w-4"/></div>
+    </div>
+<div class="relative flex my-5">
+   
+    <input class="bg-gray-300 relative border-search border w-4/6 rounded-lg p-3 " placeholder="enter email of receiver"/>
+  
+
+<div class="absolute top-1 flex justify-end cursor-pointer left-3">
+    <img src="./images/Button (2).png" alt="send button" class=""/>
+</div>
+</div>
+<h3 class="text-xl font-semibold text-herotext py-2" >Video Url</h3>
+<div class="relative flex mb-5">
+    <input id="emailInput" class="bg-gray-300 relative border-search border w-4/6 rounded-lg p-3" placeholder="Enter email of receiver"/>
+    <div class="absolute top-1 flex justify-end cursor-pointer left-3">
+        <a href="#" id="sendEmail">
+            <img src="./images/Button (3).png" alt="send button" />
+        </a>
+    </div>
+</div>
+
+
+<div class="my-5">
+<h3 class="font-semibold text-herotext text-lg py-2">Share your video</h3>
+<div class="flex">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_URL_HERE" target="_blank" rel="noopener noreferrer">
+        <div class="mr-2">
+            <img src="./images/Frame 201.png" alt="facebook" />
+        </div>
+    </a>
+    <a href="whatsapp://send?text=Check%20out%20this%20video:%20YOUR_URL_HERE">
+        <div class="mx-2">
+            <img src="./images/Frame 201 (1).png" alt="whatsapp" />
+        </div>
+    </a>
+    <a href="https://twitter.com/intent/tweet?url=YOUR_URL_HERE&text=Check%20out%20this%20video" target="_blank" rel="noopener noreferrer">
+        <div class="mx-2">
+            <img src="./images/Frame 201 (2).png" alt="twitter" />
+        </div>
+    </a>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mt-10 flex items-center">
+    <video controls width="540" height="400" class="border border-gray-300">
+        <source src="your-video-file.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+    </div>
+   </section>
+   <section class="bg-searchborder w-full h-64">
+<div class="flex items-center justify-center text-center">
+<div class="w-1/2 mx-auto">
+    <h2 class="text-2xl font-semibold text-herotext py-5">
+        To ensure the availability and privacy of your video, we recommend saving it to your account.
+    </h2>
+    <div class="my-5 flex justify-center">
+<img src="./images//Frame 15.png" alt="save video" />
+    </div>
+    <h3 class="text-gray-500 font-semibold text-2xl">Don't have an account? <span class="text-bluetwo">Create account</span>
+    </h3>
+</div>
+</div>
+   </section>
+   
+    
+  
+  <div id="myModal" class="modal fixed inset-0 flex items-center justify-center z-50">
+  <div class="modal-content bg-modal w-96 h-64 p-4 rounded-lg shadow-lg relative">
+    <button class="modal-close absolute cursor-pointer top-2 right-2 p-1 text-gray-600 flex  my-5 justify-end  hover:text-gray-800 focus:outline-none">
+        <img src="./images/close-circle.png" alt="close circle"/>
+        </button>
+    <div class="m-5">
+    
+    <div class="flex justify-center items-center my-5">
+<img src="./images/success-kite 1.png" alt="success kite"/>
+    </div>
+    <div class="my-5">
+<h3 class="font-medium text-lg text-bluetwo text-center">Your video link has been sent to </h3>
+    </div>
+    <div class="my-5 text-center">
+<h3 class="text-lg pb-5 text-herotext text-center">Would you need to view this video later?</h3>
+<h3>Save to your account now!</h3>    
+</div>
+<div class="flex justify-center items-center">
+    <img src="./images/Frame 15.png" alt="save video"/>
+</div>
+<h3 class="text-gray-500 mt-5 text-center font-medium text-lg py-5">Don't have an account? <span class="text-bluetwo">Create account</span>
+</h3>
+</div>   
+  </div>
+  </div>
+
+    <div id="footer"></div>
+</body>
+</html>

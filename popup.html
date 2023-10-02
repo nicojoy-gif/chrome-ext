@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href='./dist/output.css' rel='stylesheet'>
+
+    <script src="./RecordRTC-master/dist/RecordRTC.min.js"></script>
+    <title>Chrome Video Recorder</title>
+</head>
+
+<body class="">
+    <div class="content w-min-72 w-72 h-min-96 h-full flex flex-col shadow-lg rounded-lg">
+        <section class="m-3">
+            <div class="flex justify-between my-3">
+                <div>
+                    <img src="./images/logo.png" class=" w-32" />
+                </div>
+                <div class="flex mt-3">
+
+                    <img src="./images/setting-2.png" class="mx-2 cursor-pointer h-5 w-5" />
+
+                    <div id="closeIcon">
+                        <img src="./images/close-circle.png" class="h-5 cursor-pointer w-5 mx-2" />
+                    </div>
+
+                </div>
+            </div>
+            <h2 class="text-sm text-cyan-900 px-3 py-2 ">This extension helps you record and share help videos with ease
+            </h2>
+            <div class="pt-2 flex justify-center items-center">
+                <div class="cursor-pointer mx-5 font-medium select-source">
+                    <img src="./images/monitor.png" class="mx-3" data-source="screen" />
+                    <h3 class="text-center">Full screen</h3>
+                </div>
+                <div class="cursor-pointer font-medium mx-5 text-bluetwo select-source">
+                    <img src="./images/copy.png" class="mx-3 select-source" data-source="camera" />
+                    <h3 class="text-center ">Current Tab</h3>
+                </div>
+            </div>
+
+            <div>
+                <div class="rounded-xl my-3 border-2 py-1 px-3 w-64 border-cyan-900">
+                    <div class="flex justify-between">
+                        <div class="flex text-cyan-900" id="enableCamera">
+                            <img src="./images/video-camera.png" />
+                            <h3 class="px-3 font-medium text-cyan-800">Camera</h3>
+                        </div>
+                        <input
+                            class="mr-2 mt-[0.3rem] h-3.5 w-8 appearance-none rounded-[0.4375rem] bg-bluetwo before:pointer-events-none before:absolute before:h-3.5 before:w-3.5 before:rounded-full before:bg-transparent before:content-[''] after:absolute after:z-[2] after:-mt-[0.1875rem] after:h-5 after:w-5 after:rounded-full after:border-none after:bg-neutral-100 after:shadow-[0_0px_3px_0_rgb(0_0_0_/_7%),_0_2px_2px_0_rgb(0_0_0_/_4%)] after:transition-[background-color_0.2s,transform_0.2s] after:content-[''] 
+                            checked:bg-primary  
+                            checked:after:absolute checked:after:z-[2] checked:after:-mt-[3px] checked:after:ml-[1.0625rem] checked:after:h-5 checked:after:w-5 checked:after:rounded-full checked:after:border-none checked:after:bg-primary checked:after:shadow-[0_3px_1px_-2px_rgba(0,0,0,0.2),_0_2px_2px_0_rgba(0,0,0,0.14),_0_1px_5px_0_rgba(0,0,0,0.12)] checked:after:transition-[background-color_0.2s,transform_0.2s] checked:after:content-[''] 
+                            hover:cursor-pointer focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[3px_-1px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-5 focus:after:w-5 focus:after:rounded-full focus:after:content-[''] 
+                            checked:focus:border-primary checked:focus:bg-primary checked:focus:before:ml-[1.0625rem] checked:focus:before:scale-100 checked:focus:before:shadow-[3px_-1px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] 
+                            dark:bg-neutral-600 dark:after:bg-neutral-400 dark:checked:bg-black dark:checked:after:bg-black dark:focus:before:shadow-[3px_-1px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[3px_-1px_0px_13px_#3b71ca]"
+                            type="checkbox" role="switch" id="toggleCamera" />
+
+                    </div>
+                </div>
+                <div class="rounded-xl border-2  py-1 px-3 w-64 border-cyan-900">
+                    <div class="flex justify-between">
+                        <div class="flex text-cyan-900" id="enableAudio">
+                            <img src="./images/microphone.png" />
+                            <h3 class="px-3 font-medium text-cyan-800">Audio</h3>
+                        </div>
+                        <input
+                            class="mr-2 mt-[0.3rem] h-3.5 w-8 appearance-none rounded-[0.4375rem] bg-bluetwo before:pointer-events-none before:absolute before:h-3.5 before:w-3.5 before:rounded-full before:bg-transparent before:content-[''] after:absolute after:z-[2] after:-mt-[0.1875rem] after:h-5 after:w-5 after:rounded-full after:border-none after:bg-neutral-100 after:shadow-[0_0px_3px_0_rgb(0_0_0_/_7%),_0_2px_2px_0_rgb(0_0_0_/_4%)] after:transition-[background-color_0.2s,transform_0.2s] after:content-[''] 
+                            checked:bg-primary  
+                            checked:after:absolute checked:after:z-[2] checked:after:-mt-[3px] checked:after:ml-[1.0625rem] checked:after:h-5 checked:after:w-5 checked:after:rounded-full checked:after:border-none checked:after:bg-primary checked:after:shadow-[0_3px_1px_-2px_rgba(0,0,0,0.2),_0_2px_2px_0_rgba(0,0,0,0.14),_0_1px_5px_0_rgba(0,0,0,0.12)] checked:after:transition-[background-color_0.2s,transform_0.2s] checked:after:content-[''] 
+                            hover:cursor-pointer focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[3px_-1px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-5 focus:after:w-5 focus:after:rounded-full focus:after:content-[''] 
+                            checked:focus:border-primary checked:focus:bg-primary checked:focus:before:ml-[1.0625rem] checked:focus:before:scale-100 checked:focus:before:shadow-[3px_-1px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] 
+                            dark:bg-neutral-600 dark:after:bg-neutral-400 dark:checked:bg-black dark:checked:after:bg-black dark:focus:before:shadow-[3px_-1px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[3px_-1px_0px_13px_#3b71ca]"
+                            type="checkbox" role="switch" id="toggleAudio" />
+                    </div>
+                </div>
+                <div class="my-3" id="start_video">
+                    <button
+                        class="px-6 cursor-pointer text-white font-medium rounded-lg bg-sky-800 text-center w-64 py-2"
+                        id="toggleRecording">Start Recording</button>
+
+                </div>
+
+                <div>
+                    <a id="downloadLink" href="#" download="recorded-video.webm" class="hidden">Download Video</a>
+                </div>
+                <div>
+                    <p id="downloadURL" class="hidden">Download URL:</p>
+                    <a id="urlLink" href="#" target="_blank"></a>
+                </div>
+
+            </div>
+            <div class="button_cont">
+                <button id="stopRecording"></button>
+            </div>
+            <div class="video-container">
+                <video id="recordedVideo" controls></video>
+            </div>
+
+    </div>
+    </div>
+
+
+    <script src="./popup.js"></script>
+</body>
+
+</html>
