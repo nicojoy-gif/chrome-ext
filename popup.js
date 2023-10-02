@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const downloadLink = document.getElementById("downloadLink");
     const downloadURLText = document.getElementById("downloadURL");
     const urlLink = document.getElementById("urlLink");
-    let downloadURL; 
+    let downloadURL; // Variable to store the download URL
 
     closeIcon.addEventListener("click", () => {
         console.log("Close icon clicked");
@@ -21,31 +21,28 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleRecordingButton.addEventListener("click", async () => {
         toggleRecordingButton.disabled = true;
         stopRecordingButton.disabled = false;
+
         try {
             videoStream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: false });
             recorder = new MediaRecorder(videoStream);
+
             const chunks = [];
+
             recorder.ondataavailable = (event) => {
                 if (event.data.size > 0) {
                     chunks.push(event.data);
                 }
             };
+
             recorder.onstop = () => {
                 videoBlob = new Blob(chunks, { type: "video/webm" });
-                recordedVideo.src = window.URL.createObjectURL(videoBlob); 
-                downloadURL = window.URL.createObjectURL(videoBlob); 
-                const downloadPageURL = `download.html?videoBlobURL=${encodeURIComponent(downloadURL)}`;
-                const newTab = window.open(downloadPageURL, "_blank");
-                if (newTab) {
-                    newTab.focus();
-                } else {
-                    alert("The new tab was blocked by your browser. Please allow pop-ups for this site.");
-                }
-                downloadURLText.classList.remove("hidden");
-                urlLink.href = downloadURL;
-                urlLink.textContent = downloadURL;
-                downloadLink.href = downloadURL;
-                downloadLink.classList.remove("hidden");
+                recordedVideo.src = URL.createObjectURL(videoBlob);
+                downloadURL = URL.createObjectURL(videoBlob);
+                downloadURLText.classList.remove("hidden"); // Show the download URL
+                urlLink.href = downloadURL; // Set the href of the URL link
+                urlLink.textContent = downloadURL; // Display the download URL
+                downloadLink.href = downloadURL; // Set the href of the download link
+                downloadLink.classList.remove("hidden"); // Show the download link
                 downloadVideoButton.disabled = false;
             };
 
