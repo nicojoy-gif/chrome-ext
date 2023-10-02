@@ -12,8 +12,8 @@
 </head>
 
 <body class="">
-    <div class="content w-min-72 w-72 h-min-96 h-full flex flex-col shadow-lg rounded-lg">
-        <section class="m-3">
+    <div class="content w-min-72 w-96 h-min-96 h-full flex flex-col shadow-lg rounded-lg">
+        <section class="m-3 flex justify-between flex-col ">
             <div class="flex justify-between my-3">
                 <div>
                     <img src="./images/logo.png" class=" w-32" />
@@ -42,7 +42,7 @@
             </div>
 
             <div>
-                <div class="rounded-xl my-3 border-2 py-1 px-3 w-64 border-cyan-900">
+                <div class="rounded-xl my-3 border-2 py-1 px-3  border-cyan-900">
                     <div class="flex justify-between">
                         <div class="flex text-cyan-900" id="enableCamera">
                             <img src="./images/video-camera.png" />
@@ -59,7 +59,7 @@
 
                     </div>
                 </div>
-                <div class="rounded-xl border-2  py-1 px-3 w-64 border-cyan-900">
+                <div class="rounded-xl border-2  py-1 px-3  border-cyan-900">
                     <div class="flex justify-between">
                         <div class="flex text-cyan-900" id="enableAudio">
                             <img src="./images/microphone.png" />
@@ -77,7 +77,7 @@
                 </div>
                 <div class="my-3" id="start_video">
                     <button
-                        class="px-6 cursor-pointer text-white font-medium rounded-lg bg-sky-800 text-center w-64 py-2"
+                        class="px-6 cursor-pointer text-white font-medium rounded-lg bg-sky-800 text-center w-full py-2"
                         id="toggleRecording">Start Recording</button>
 
                 </div>
@@ -95,7 +95,7 @@
                 <button id="stopRecording"></button>
             </div>
             <div class="video-container">
-                <video id="recordedVideo" controls></video>
+                <video id="recordedVideo" controls  width="540" height="400"></video>
             </div>
 
     </div>
