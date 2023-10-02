@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const downloadLink = document.getElementById("downloadLink");
     const downloadURLText = document.getElementById("downloadURL");
     const urlLink = document.getElementById("urlLink");
-    let downloadURL; // Variable to store the download URL
+    let downloadURL; 
 
     closeIcon.addEventListener("click", () => {
         console.log("Close icon clicked");
@@ -21,44 +21,33 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleRecordingButton.addEventListener("click", async () => {
         toggleRecordingButton.disabled = true;
         stopRecordingButton.disabled = false;
-
         try {
             videoStream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: false });
             recorder = new MediaRecorder(videoStream);
-
             const chunks = [];
-
             recorder.ondataavailable = (event) => {
                 if (event.data.size > 0) {
                     chunks.push(event.data);
                 }
             };
-
-           // Inside the `recorder.onstop` event handler
-recorder.onstop = () => {
-    videoBlob = new Blob(chunks, { type: "video/webm" });
-    recordedVideo.src = window.URL.createObjectURL(videoBlob); // Updated line
-    downloadURL = window.URL.createObjectURL(videoBlob); // Updated line
-
-    // Open the video in a new tab with the download.html page
-    const downloadPageURL = `download.html?videoBlobURL=${encodeURIComponent(downloadURL)}`;
-    const newTab = window.open(downloadPageURL, "_blank");
-
-    // Check if the new tab was successfully opened
-    if (newTab) {
-        newTab.focus();
-    } else {
-        alert("The new tab was blocked by your browser. Please allow pop-ups for this site.");
-    }
-
-    // Rest of your code remains unchanged
-    downloadURLText.classList.remove("hidden");
-    urlLink.href = downloadURL;
-    urlLink.textContent = downloadURL;
-    downloadLink.href = downloadURL;
-    downloadLink.classList.remove("hidden");
-    downloadVideoButton.disabled = false;
-};
+            recorder.onstop = () => {
+                videoBlob = new Blob(chunks, { type: "video/webm" });
+                recordedVideo.src = window.URL.createObjectURL(videoBlob); 
+                downloadURL = window.URL.createObjectURL(videoBlob); 
+                const downloadPageURL = `download.html?videoBlobURL=${encodeURIComponent(downloadURL)}`;
+                const newTab = window.open(downloadPageURL, "_blank");
+                if (newTab) {
+                    newTab.focus();
+                } else {
+                    alert("The new tab was blocked by your browser. Please allow pop-ups for this site.");
+                }
+                downloadURLText.classList.remove("hidden");
+                urlLink.href = downloadURL;
+                urlLink.textContent = downloadURL;
+                downloadLink.href = downloadURL;
+                downloadLink.classList.remove("hidden");
+                downloadVideoButton.disabled = false;
+            };
 
             recorder.start();
         } catch (error) {
