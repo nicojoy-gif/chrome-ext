@@ -7,7 +7,7 @@
 "http://*/",
 "https://*/*"
   ],
-    "permissions": ["tabs", "scripting", "activeTab", "desktopCapture",
+    "permissions": ["tabs", "scripting", "activeTab",  "desktopCapture",
     "storage"],
     "action": {
       "default_popup": "popup.html",

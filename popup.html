@@ -31,11 +31,11 @@
             <h2 class="text-sm text-cyan-900 px-3 py-2 ">This extension helps you record and share help videos with ease
             </h2>
             <div class="pt-2 flex justify-center items-center">
-                <div class="cursor-pointer mx-5 font-medium select-source">
+                <div class="cursor-pointer mx-5 font-medium ">
                     <img src="./images/monitor.png" class="mx-3" data-source="screen" />
                     <h3 class="text-center">Full screen</h3>
                 </div>
-                <div class="cursor-pointer font-medium mx-5 text-bluetwo select-source">
+                <div class="cursor-pointer font-medium mx-5 text-bluetwo ">
                     <img src="./images/copy.png" class="mx-3 select-source" data-source="camera" />
                     <h3 class="text-center ">Current Tab</h3>
                 </div>
@@ -44,7 +44,7 @@
             <div>
                 <div class="rounded-xl my-3 border-2 py-1 px-3  border-cyan-900">
                     <div class="flex justify-between">
-                        <div class="flex text-cyan-900" id="enableCamera">
+                        <div class="flex text-cyan-900 select-camera" id="enableCamera" >
                             <img src="./images/video-camera.png" />
                             <h3 class="px-3 font-medium text-cyan-800">Camera</h3>
                         </div>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="rounded-xl border-2  py-1 px-3  border-cyan-900">
                     <div class="flex justify-between">
-                        <div class="flex text-cyan-900" id="enableAudio">
+                        <div class="flex text-cyan-900 select-audio" id="enableAudio">
                             <img src="./images/microphone.png" />
                             <h3 class="px-3 font-medium text-cyan-800">Audio</h3>
                         </div>
@@ -77,27 +77,26 @@
                 </div>
                 <div class="my-3" id="start_video">
                     <button
-                        class="px-6 cursor-pointer text-white font-medium rounded-lg bg-sky-800 text-center w-full py-2"
+                        class="px-6 cursor-pointer start-recording text-white font-medium rounded-lg bg-sky-800 text-center w-full py-2"
                         id="toggleRecording">Start Recording</button>
 
                 </div>
 
-                <div>
-                    <a id="downloadLink" href="#" download="recorded-video.webm" class="hidden">Download Video</a>
-                </div>
+              
                 <div>
                     <p id="downloadURL" class="hidden">Download URL:</p>
                     <a id="urlLink" href="#" target="_blank"></a>
                 </div>
+                
 
             </div>
             <div class="button_cont">
                 <button id="stopRecording"></button>
             </div>
-            <div class="video-container">
-                <video id="recordedVideo" controls  width="540" height="400"></video>
+           
+            <div>
+                <a id="downloadLink" href="#"  download="recorded-video.webm" class="download-video"></a>
             </div>
-
     </div>
     </div>
 

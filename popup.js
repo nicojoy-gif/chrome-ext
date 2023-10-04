@@ -1,30 +1,38 @@
-document.addEventListener("DOMContentLoaded", function () {
-   
+
+    "use strict"
 
     const toggleRecordingButton = document.getElementById("toggleRecording");
-    const closeIcon = document.getElementById("closeIcon");
     const stopRecordingButton = document.getElementById("stopRecording");
-    
-    
-
-    closeIcon.addEventListener("click", () => {
-        console.log("Close icon clicked");
-        window.close();
-    });
+    const cam = document.querySelector('.select-camera')
+    const audio = document.querySelector('.select-audio')
+    let camActive = false;
+    let micActive = false;
 
     toggleRecordingButton.addEventListener("click", async () => {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
-            chrome.tabs.sendMessage(tabs[0].id, {action: "request_recording"}, function(response){
+            chrome.tabs.sendMessage(tabs[0].id, {action: "request_recording"},  function(response){
                 if(!chrome.runtime.lastError){
-                console.log(response)
+                    console.log(response)
                 } else{
                     console.log(chrome.runtime.lastError, 'error line 14')
                 }
-            }
-            )
-        })
+            })
+        } )
+    })
+    cam.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.target.closest("div").classList.toggle("active");
+        camActive = !camActive;
+        console.log(camActive);
+      });
+
       
-    });
+audio.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.target.closest("div").classList.toggle("active");
+    micActive = !micActive;
+    console.log(micActive);
+  });
 
     stopRecordingButton.addEventListener("click", () => {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
@@ -38,6 +46,3 @@ document.addEventListener("DOMContentLoaded", function () {
         } )
     })
     
-
-   
-});

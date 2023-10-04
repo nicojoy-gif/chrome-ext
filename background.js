@@ -1,14 +1,13 @@
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab ) => {
-if (changeInfo.status === 'complete' && /^http/.test(tab.url)){
-    chrome.scripting.executeScript({
-        target: {tabId},
-        files: ["./content.js"]
-    }). then(() => {
-        console.log("we have injected the content screen")
-    }). catch(err => console.log(err, "err in background script 8"))
-}
+//chrome
+
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=>{
+    if(changeInfo.status === "complete" && /^http/.test(tab.url)){
+        chrome.scripting.executeScript({
+            target: {tabId},
+            files: ["./content.js"]
+        }).then(()=>{
+            console.log("we have injected the content script")
+        }).catch(err=> console.log(err, "error in background script line 10"))
+    }
 })
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    
-})
